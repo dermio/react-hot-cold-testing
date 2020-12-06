@@ -2,19 +2,19 @@ language: node_js
 node_js: node
 cache:
   directories:
-    - node_modules
+  - node_modules
 script:
-  - npm test
+- npm test
 env:
-  - CI=true
-
+- CI=true
 before_deploy:
-  - npm install netlify-cli -g
-  - npm run build
-
+- npm install netlify-cli -g
+- npm run build
 deploy:
   provider: script
   script: netlify deploy -s $NETLIFY_SITE_ID -t $NETLIFY_ACCESS_TOKEN -p ./build
   skip_cleanup: true
   on:
     branch: master
+  api_key:
+    secure: R2v7/AZDGCXDiqX+YXtBHLbMis4GIHbNM03WuoegvIgLd6GPkJeeylJbEQFfMYvaW+NCyBXqLDoindvsZyeWGoZQ5Z4c5k270vbsvUyKF9Yt7GoW//mRyKPScs9NFB6wDgc/aCNqxrXJcuszoHlXxk8/SzqJNOUy7rdN7lw+aiut9qWMk3jsH/Ok2YWc2pSnIR1mEs80wdtg1UerfLcCmxABZp2fVi1a7HFqOM2ATqsA+QppRmOMOsSnWEGWr5kuAYvOLbEGgm9SFd9II5vAwJBIJKe7SNT4bV9gzYMk3FaLlta9D4ZnD1FTASas3n8LB9NtNYCuKEAoA5gEjsvJqzacbqJkI90ce+L1bIjZG7i4vZZI7w493KjVL0X6L9k3dVFVVJYFhvlmBEa/uyrTKaA/O+nGwOfvsCBOPDYBs8gXyi2L55KOw4jfDb05yIo2Y0uvx5phqqnVk9N4D+ik8KbKJ+lxHKoBiID6CUIUsUGZQpIphFO+FfaUzxCEt7XvMxroIJilWmoa9ReNkQhfMhCDKxk9C29jgqrDgLKYR9EytZkr3Hrk8mioFxQQ6CRVbchNKzdlGes572JHn1rzHusESuYWHsANFE8QkIAArwBQCCsBhruF64+/KAaD539KYIYFzqbAAfkVgKNbX0w0YcgaZQNXVzhbqnxXP6vAeEg=
